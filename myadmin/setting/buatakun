@@ -1,0 +1,38 @@
+<?php 
+		include 'database.php';  // jika beda sesuai dengan config anda
+
+		if(isset($_POST['submit'])){
+			$nik = $_POST['nik'];
+			$kk = $_POST['kk'];
+			$username = $_POST['username'];
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+			
+		
+					$query = mysqli_query($koneksi, "INSERT INTO akun(nik, kk  , username, email,pass, status, keterangan) VALUES('$tanggal', '$id_member', '$toko', '$nama', 'Proses', 'Sedang di Proses','Sedang di Proses' )");
+					if($query){
+						echo ' 
+						 <script>
+        					alert("Berhasil Ditambahkan!");
+        					window.location = "../use/inputstruk.php"
+      					 </script>';
+					}else{
+						echo '<script>
+        					alert("Gagal Ditambahkan!");
+        					window.location = "../admin/page/konseling.php"
+      					 	</script>';
+					}
+				}else{
+					echo '<script>
+        					alert("File Terlalu Besar!!!");
+        					
+      					 </script>';
+				}
+			}
+			else{
+				echo '<script>
+        					alert(Ekstensi File Tidak Diperbolehkan!!);
+        			  </script>';
+			}
+		}
+		?>
